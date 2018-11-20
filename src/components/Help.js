@@ -20,6 +20,7 @@ import Typography from "@material-ui/core/Typography/Typography";
 import Chip from "@material-ui/core/Chip/Chip";
 import StarIcon from "@material-ui/icons/Star";
 import Divider from "@material-ui/core/Divider/Divider";
+import LinearProgress from "@material-ui/core/LinearProgress/LinearProgress";
 
 const styles = theme => ({
     mainContainer: {
@@ -33,7 +34,7 @@ const styles = theme => ({
         marginBottom: theme.spacing.unit * 2,
     },
     formControl: {
-        margin: theme.spacing.unit,
+        //margin: theme.spacing.unit,
         width: '100%',
     },
     answerPaper: {
@@ -68,6 +69,7 @@ class Help extends React.Component {
         answerLabel: 'Choisissez un tramway',
         answer: [],
 
+        completed: 0,
         isLoading: false
     };
 
@@ -78,11 +80,16 @@ class Help extends React.Component {
             this.setState({
                 [event.target.name]: index,
                 direction: '',
-                station: ''
+                station: '',
+                completed: 33
             });
         } else {
+            let completed = 66
+            if (type === 'station') completed = 100
+
             this.setState({
                 [event.target.name]: index,
+                completed: completed
             });
         }
     };
@@ -102,7 +109,8 @@ class Help extends React.Component {
             .catch(error => {
                 this.setState({
                     answerLabel: 'Erreur',
-                    answer: ['Un problème est survenue']
+                    answer: ['Un problème est survenue'],
+                    completed: 0
                 })
                 console.log(error.message)
             })
@@ -112,19 +120,22 @@ class Help extends React.Component {
                 if (schedule.length === 0) {
                     this.setState({
                         answerLabel: 'Horaires indisponibles',
-                        answer: ["Ce service est terminé"]
+                        answer: ["Ce service est terminé"],
+                        completed: 0
                     })
                 } else {
                     this.setState({
                         answerLabel: answerLabel,
-                        answer: schedule
+                        answer: schedule,
+                        completed: 0
                     })
                 }
             })
             .catch(error => {
                 this.setState({
                     answerLabel: 'Erreur',
-                    answer: ['Un problème est survenue']
+                    answer: ['Un problème est survenue'],
+                    compelted: 0
                 })
                 console.log(error.message)
             })
@@ -144,9 +155,17 @@ class Help extends React.Component {
         const answerSizeXS = 10
         const answerSizeMD = 4
 
+        const linearSizeXS = 10
+        const linearSizeMD = 12
+
         return (
             <Grid container justify="center" className={ classes.mainContainer } >
+                <Grid item xs={ linearSizeXS } md={ linearSizeMD } className={ classes.rowContainer } >
+                    <LinearProgress color="secondary" variant="determinate" value={this.state.completed} />
+                </Grid>
+
                 <Grid container justify="center" spacing={16} className={ classes.rowContainer }>
+
                     <Grid item xs={ selectSizeXS } md={ selectSizeMD } >
                         <FormControl className={classes.formControl}>
                             <InputLabel htmlFor="ligne-simple">Tramway</InputLabel>
@@ -164,6 +183,7 @@ class Help extends React.Component {
                             </Select>
                         </FormControl>
                     </Grid>
+
                     <Grid item xs={ selectSizeXS } md={ selectSizeMD } >
                         <FormControl className={classes.formControl}>
                             <InputLabel htmlFor="direction-simple">Direction</InputLabel>
@@ -186,6 +206,7 @@ class Help extends React.Component {
                             </Select>
                         </FormControl>
                     </Grid>
+
                     <Grid item xs={ selectSizeXS } md={ selectSizeMD } >
                         <FormControl className={classes.formControl}>
                             <InputLabel htmlFor="station-simple">Arrêt</InputLabel>
@@ -218,6 +239,7 @@ class Help extends React.Component {
                         </FormControl>
                     </Grid>
                 </Grid>
+
                 <Grid container justify="center" className={ classes.rowContainer }>
                     <Grid item xs={ buttonSizeXS } md={ buttonSizeMD } >
                         <Button

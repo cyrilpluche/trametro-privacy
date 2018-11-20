@@ -13,7 +13,6 @@ const ligne1 = {
         { label: "Corum", code: "corum", isFavorite: true },
         { label: "Du Guesclin", code: "du guesclin", isFavorite: false },
         { label: "Euromédecine", code: "euromedecine", isFavorite: false },
-
         { label: "Gare Saint-Roch", code: "gare st-roch t1", isFavorite: false },
         { label: "Halles Paillade", code: "halles paillad", isFavorite: false },
         { label: "Hauts de Massane", code: "hauts de massane", isFavorite: false },
@@ -24,6 +23,18 @@ const ligne1 = {
         { label: "Millénaire", code: "millenaire", isFavorite: false },
         { label: "Mondial 98", code: "mondial 98", isFavorite: false },
 
+        { label: "Moulares", code: "moulares", isFavorite: false },
+        { label: "Occitanie", code: "occitanie", isFavorite: false },
+        { label: "Philippides", code: "philippides", isFavorite: false },
+        { label: "Place de l'Europe", code: "pl. de l'europe", isFavorite: false },
+        { label: "Place Albert 1er", code: "place albert 1er", isFavorite: false },
+        { label: "Place de France", code: "place de france", isFavorite: false },
+        { label: "Port Marianne", code: "port marianne", isFavorite: false },
+        { label: "Rives du Lez", code: "rive du lez", isFavorite: false },
+        { label: "Saint-Eloi", code: "saint-Eloi", isFavorite: true },
+        { label: "Saint-Paul", code: "saint-paul", isFavorite: false },
+        { label: "Stade Mosson", code: "stade mosson", isFavorite: false },
+        { label: "Université des Sciences", code: "universites", isFavorite: true }
     ]
 }
 

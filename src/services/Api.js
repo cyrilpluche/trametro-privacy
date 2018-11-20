@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://trametro.herokuapp.com/api/'
+const BASE_URL = 'https://trametro.herokuapp.com/api/'
 const TRAVELER_ID = 'trametro-application'
 const SESSION_ID = 'trametro-application'
 
