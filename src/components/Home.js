@@ -97,7 +97,7 @@ class Home extends React.Component {
 
         return (
             <Grid className={classes.root} justify={'center'} alignItems={'center'} container>
-                <Grid item xs={7}>
+                <Grid item xs={11} sm={7}>
                     <Stepper activeStep={activeStep} orientation="vertical" className={ classes.bodyBackground }>
                         {steps.map((label, index) => {
                             return (
@@ -132,7 +132,7 @@ class Home extends React.Component {
                     </Stepper>
                     {activeStep === steps.length && (
                         <Paper square elevation={0} className={classes.resetContainer}>
-                            <Typography>Qu'est ce que vous attendez pour essayer ? <br/>Télécharger Trametro Montpellier dès maintenant.</Typography>
+                            <Typography>Qu'est ce que vous attendez pour essayer ? <br/>Téléchargez Trametro Montpellier dès maintenant.</Typography>
                             <Button onClick={this.handleReset} className={classes.button}>
                                 Revoir les étapes
                             </Button>

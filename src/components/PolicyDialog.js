@@ -1,5 +1,5 @@
 import React from 'react';
-import customHistory from '../helper/History'
+import _helper from '../helper'
 
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -20,7 +20,7 @@ class PolicyDialog extends React.Component {
 
     handleClose = () => {
         this.setState({ open: false });
-        customHistory.push('/accueil')
+        _helper.customHistory.push('/accueil')
     };
 
     render() {

@@ -6,7 +6,8 @@ import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import HomeIcon from '@material-ui/icons/Home';
 import HelpIcon from '@material-ui/icons/Help';
 import PanToolIcon from '@material-ui/icons/PanTool';
-import customHistory from '../helper/History'
+import _helper from '../helper'
+import Grid from "@material-ui/core/Grid/Grid";
 
 const styles = {
     root: {
@@ -24,7 +25,7 @@ class LabelBottomNavigation extends React.Component {
 
     handleChange = (event, value) => {
         this.setState({ value });
-        customHistory.push(value)
+        _helper.customHistory.push(value)
     };
 
     render() {
@@ -32,11 +33,13 @@ class LabelBottomNavigation extends React.Component {
         const { value } = this.state;
 
         return (
-            <BottomNavigation value={value} onChange={this.handleChange} className={classes.root}>
-                <BottomNavigationAction label="Accueil" value="/accueil" icon={<HomeIcon />} />
-                <BottomNavigationAction label="Aide" value="/help" icon={<HelpIcon />} />
-                <BottomNavigationAction label="Politique" value="/politique" icon={<PanToolIcon/>} />
-            </BottomNavigation>
+            <Grid container>
+                <BottomNavigation value={value} onChange={this.handleChange} className={classes.root}>
+                    <BottomNavigationAction label="Accueil" value="/accueil" icon={<HomeIcon />} />
+                    <BottomNavigationAction label="Aide" value="/help" icon={<HelpIcon />} />
+                    <BottomNavigationAction label="Politique" value="/politique" icon={<PanToolIcon/>} />
+                </BottomNavigation>
+            </Grid>
         );
     }
 }

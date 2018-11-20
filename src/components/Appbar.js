@@ -9,7 +9,7 @@ import Grid from "@material-ui/core/Grid/Grid";
 const styles = {
     root: {
         flexGrow: 1,
-        marginBottom: 30
+        marginBottom: 30,
     },
 };
 
